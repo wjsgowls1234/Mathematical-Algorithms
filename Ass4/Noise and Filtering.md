@@ -34,7 +34,6 @@ We also measure image quality using Mean Square Error (MSE).
 ---
 
 ## 4️⃣ Non-linear Filtering (Median Filter)
-![median_filters](results/median_filters.png)  
 **Explanation:**  
 - Median filtering was applied to both Gaussian and Salt & Pepper noisy images.  
 - The median filter effectively removed salt & pepper noise without blurring edges.  
@@ -43,6 +42,5 @@ We also measure image quality using Mean Square Error (MSE).
 ---
 
 ## 5️⃣ Comparing Metrics After Filtering
-![mse_after_filtering](results/mse_after_filtering.png)  
 **Explanation:**  
 - Example of MATLAB output:  
