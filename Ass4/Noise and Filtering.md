@@ -44,3 +44,17 @@ We also measure image quality using Mean Square Error (MSE).
 ## 5️⃣ Comparing Metrics After Filtering
 **Explanation:**  
 - Example of MATLAB output:  
+- Median filtering achieves much lower MSE for Salt & Pepper noise, confirming it performs best for impulsive noise.
+
+---
+
+## 6️⃣ Reflections
+- **Best filter for Salt & Pepper noise:** Median filter (removes outliers effectively).  
+- **Why linear filters blur edges:** They average pixels uniformly, reducing contrast at boundaries.  
+- **Improvement idea:** Adaptive filtering that changes behavior based on local image variance can preserve edges better.
+
+---
+
+✅ **Summary**
+This lab demonstrated that while linear filters reduce Gaussian noise efficiently,  
+non-linear filters like the median filter are superior for removing Salt & Pepper noise without sacrificing edge detail.
