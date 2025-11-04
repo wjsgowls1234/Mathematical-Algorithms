@@ -4,22 +4,22 @@
 
 Combine all DSP-image concepts—**filtering, frequency, edges, and enhancement**—into a single pipeline.
 
-**Problem Defined:** Strong sunlight in a landscape photo causes overexposed highlights. The goal is to reduce overexposure while preserving shadows and details.
+**Problem Defined:** Strong sunlight in a photo causes overexposed highlights. The goal is to reduce overexposure while preserving shadows and details.
 
 ---
 
 
 ## Step 0: Image Selection
-![Pipeline Result Visualization](results/L6_1.png)
+![Pipeline Result Visualization](results/Hyejin1.jpg)
 
-* **Selected Image:** Sunny landscape photo
+* **Selected Image:** Strong sunlight photo
 * **Reason:** Contains bright sunlight areas causing overexposure, suitable for testing DSP image processing concepts.
 
 ---
 
 
 ## Step 1: Initial Pipeline Attempt
-![Pipeline Result Visualization](results/L6_1_1.png)
+![Pipeline Result Visualization](results/L6_1.png)
 
 **Objective:** Apply basic filtering and contrast enhancement
 
@@ -45,7 +45,7 @@ F = fftshift(fft2(I_enh));
 
 
 ## Step 2: Gamma Correction Attempt
-![Pipeline Result Visualization](results/L6_1_2.png)
+![Pipeline Result Visualization](results/L6_1_1.png)
 
 **Objective:** Reduce sunlight overexposure using global gamma adjustment
 
@@ -70,6 +70,7 @@ edges = edge(I_enh, 'Canny', [0.1 0.25]);
 ---
 
 ## Step 3: Final Pipeline — Adaptive Sunlight Reduction
+![Pipeline Result Visualization](results/L6_1_2.png)
 
 **Objective:** Reduce overexposure in sunlight areas while preserving shadows
 
