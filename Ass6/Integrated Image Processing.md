@@ -8,16 +8,18 @@ Combine all DSP-image concepts—**filtering, frequency, edges, and enhancement*
 
 ---
 
-![Pipeline Result Visualization](results/L6_1.png)
+
 ## Step 0: Image Selection
+![Pipeline Result Visualization](results/L6_1.png)
 
 * **Selected Image:** Sunny landscape photo
 * **Reason:** Contains bright sunlight areas causing overexposure, suitable for testing DSP image processing concepts.
 
 ---
 
-![Pipeline Result Visualization](results/L6_1_1.png)
+
 ## Step 1: Initial Pipeline Attempt
+![Pipeline Result Visualization](results/L6_1_1.png)
 
 **Objective:** Apply basic filtering and contrast enhancement
 
@@ -41,8 +43,9 @@ F = fftshift(fft2(I_enh));
 
 ---
 
-![Pipeline Result Visualization](results/L6_1_2.png)
+
 ## Step 2: Gamma Correction Attempt
+![Pipeline Result Visualization](results/L6_1_2.png)
 
 **Objective:** Reduce sunlight overexposure using global gamma adjustment
 
