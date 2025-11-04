@@ -8,7 +8,7 @@ Combine all DSP-image concepts—**filtering, frequency, edges, and enhancement*
 
 ---
 
-![Pipeline Result Visualization](results/L6_1.jpg)
+![Pipeline Result Visualization](results/L6_1.png)
 ## Step 0: Image Selection
 
 * **Selected Image:** Sunny landscape photo
@@ -16,13 +16,13 @@ Combine all DSP-image concepts—**filtering, frequency, edges, and enhancement*
 
 ---
 
-![Pipeline Result Visualization](results/L6_2.jpg)
+![Pipeline Result Visualization](results/L6_2.png)
 ## Step 1: Initial Pipeline Attempt
 
 **Objective:** Apply basic filtering and contrast enhancement
 
 ```matlab
-I = im2double(rgb2gray(imread('your_image.jpg')));
+I = im2double(rgb2gray(imread('Hyejin1.jpg')));
 I_filt = medfilt2(I,[3 3]);
 I_enh = imadjust(I_filt,[0.2 0.8],[0 1]);
 edges = edge(I_enh,'Canny',[0.1 0.25]);
@@ -41,7 +41,7 @@ F = fftshift(fft2(I_enh));
 
 ---
 
-![Pipeline Result Visualization](results/L6_3.jpg)
+![Pipeline Result Visualization](results/L6_3.png)
 ## Step 2: Gamma Correction Attempt
 
 **Objective:** Reduce sunlight overexposure using global gamma adjustment
