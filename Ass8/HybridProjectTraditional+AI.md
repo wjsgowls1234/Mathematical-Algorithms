@@ -25,6 +25,7 @@ targetImage = imread('peppers.png');
 net = squeezenet;
 ```
 
+![Original](results/L8_1.png)
 - Loaded a sample image (peppers.png).
 - Loaded SqueezeNet, a lightweight CNN pre-trained on ImageNet.
 - Displayed the original image in a figure window.
@@ -43,6 +44,7 @@ isolatedObject = targetImage;
 isolatedObject(repmat(~mask, 1, 1, 3)) = 0;
 ```
 
+![K-Means](results/L8_2.png)
 - Converted the image into the L*a*b* color space for better color clustering.
 - Used K-Means clustering (k = 2) to separate the object from the background.
 - Generated a binary mask to isolate the main object.
@@ -60,6 +62,8 @@ resizedObject = imresize(isolatedObject, [inputSize(1) inputSize(2)]);
 [YPred, probs] = classify(net, resizedObject);
 ```
 
+![SqueezeNet](results/L8_3.png)
+![Resized by AI](results/L8_4.png)
 - Resized the isolated image to 227×227×3 (required by SqueezeNet).
 - Classified the object using the pre-trained CNN.
 - Displayed the predicted label and confidence score.
