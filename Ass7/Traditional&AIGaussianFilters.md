@@ -21,17 +21,22 @@ originalImage = im2double(imread('cameraman.tif'));
 noiseSigma = 0.04;
 noisyImage = imnoise(originalImage, 'gaussian', 0, noiseSigma^2);
 ```
---
+
 ## Result
 - The image becomes slightly blurred with visible random grain-like noise.
 - Represents typical sensor or transmission noise.
+
+![original](results/L7_1.png)
+![noise](results/L7_2.png)
 
 ---
 ## ⚙️ Step 2 — Traditional Filter (Wiener)
 ```matlab
 traditionalFiltered = wiener2(noisyImage, [5 5], noiseSigma^2);
 ```
---
+
+![wiener](results/L7_3.png)
+
 - Removes most visible noise but smooths edges slightly.
 - Works adaptively depending on local variance.
   
@@ -42,7 +47,9 @@ traditionalFiltered = wiener2(noisyImage, [5 5], noiseSigma^2);
 net = denoisingNetwork('DnCNN');
 aiFiltered = denoiseImage(noisyImage, net);
 ```
---
+
+![AI](results/L7_4.png)
+
 - Produces much cleaner output while keeping fine details (edges, texture).
 - Outperforms Wiener filter both visually and quantitatively.
 
