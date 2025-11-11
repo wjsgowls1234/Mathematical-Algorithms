@@ -72,7 +72,7 @@ ssimAI = ssim(aiFiltered, originalImage);
 - The Wiener filter smooths noise but slightly blurs edges.
 - Quantitative metrics confirm the AI approach’s superiority.
 
---
+---
 
 - Traditional filters like Wiener rely on simple local variance assumptions. They are effective but can oversmooth images.
 - The DnCNN model uses deep learning to capture complex spatial dependencies, leading to higher PSNR/SSIM and more natural textures.
