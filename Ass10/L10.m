@@ -60,7 +60,7 @@ out = gather(extractdata(out)); % Remove dlarray and GPU
 out = squeeze(out); % Remove batch dimension
 out = im2uint8(out); % Convert to uint8 [0,255]
 out = imsharpen(out, 'Radius', 2, 'Amount', 1.5);
-out = imadjust(out, [0.1 0.8], [0 1], 0.5);
+out = imadjust(out, [0.1 0.8], [0 1], 0.8);
 %% 9) Show original, low-light, and enhanced images side by side
 figure;
 subplot(1,3,1);
@@ -71,4 +71,5 @@ imshow(I_dark_noisy);
 title("Simulated low light + noise");
 subplot(1,3,3);
 imshow(out);
+
 title("Network output (enhanced)");
