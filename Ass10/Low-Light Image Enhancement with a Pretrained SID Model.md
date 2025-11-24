@@ -119,26 +119,22 @@ title("Network output (enhanced)");
 ![Simunlated_Low_Light+noise](results/L10_4_2.png) 
 ![Network_Output(Enhanced)](results/L10_4_3.png) 
 
-- Median filtering was applied to both Gaussian and Salt & Pepper noisy images.  
-- The median filter effectively removed salt & pepper noise without blurring edges.  
-- For Gaussian noise, the improvement was moderate compared to linear filters.
+- The post-processing step was augmented by adding the `imsharpen` function with specific, non-default parameters: `imsharpen(out, 'Radius', 2, 'Amount', 1.5)`.  
+- This modification was implemented to aggressively enhance fine details that may have been smoothed out by the network's denoising process. Setting the `Radius` to 2 extended the area considered for sharpening, and setting the `Amount` to 1.5 increased the intensity of the sharpening effect, leading to a perceptibly crisper final image compared to using the default settings.  
 
 ---
 
-## 5️⃣ Comparing Metrics After Filtering
-**Explanation:**  
-- Example of MATLAB output:  
-- Median filtering achieves much lower MSE for Salt & Pepper noise, confirming it performs best for impulsive noise.
+## 5️⃣ Adding `imadjust`
+![Original_RGB](results/L10_1_1.png) 
+![Simunlated_Low_Light+noise](results/L10_5_2.png) 
+![Network_Output(Enhanced)](results/L10_5_3.png) 
 
----
-
-## 6️⃣ Reflections
-- **Best filter for Salt & Pepper noise:** Median filter (removes outliers effectively).  
-- **Why linear filters blur edges:** They average pixels uniformly, reducing contrast at boundaries.  
-- **Improvement idea:** Adaptive filtering that changes behavior based on local image variance can preserve edges better.
+- The post-processing step was modified by adding the `imadjust` function with specific parameters: `imadjust(out, [0.1 0.8], [0 1], 0.8)`.
+- This complex adjustment served two purposes: Contrast Stretching and Non-linear Brightening.
+- 1. Contrast Stretching: The input range `[0.1 0.8]` was mapped to the full output range `[0 1]`, forcing the image data to utilize the maximum available contrast.
+  2. Gamma Correction: A `gamma` value of 0.8 was applied simultaneously. Since $\gamma < 1$, this non-linearly brightened the image, particularly enhancing the contrast in the darker regions.
 
 ---
 
 ✅ **Summary**
-This lab demonstrated that while linear filters reduce Gaussian noise efficiently,  
-non-linear filters like the median filter are superior for removing Salt & Pepper noise without sacrificing edge detail.
+The experiments demonstrated that while the pretrained SID model provides excellent foundational denoising and brightening, strategic post-processing (using imsharpen or parameterized imadjust) is crucial for maximizing the aesthetic quality and visual clarity of the final enhanced image. The network also proved robust across various input conditions, ranging from nearly normal light (Experiment 2) to nearly noise-free input (Experiment 3).
