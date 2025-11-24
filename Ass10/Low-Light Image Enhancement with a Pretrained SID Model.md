@@ -1,4 +1,4 @@
-# 🧪 Lab 10 — Low-Light Image Enhancement with a Pretrained SID Model
+# 🧪 Lab 10 : Low-Light Image Enhancement with a Pretrained SID Model
 
 ## 🎯 Objective
 The primary objective of this laboratory assignment is to demonstrate the practical application of a pretrained deep learning model for low-light image enhancement, specifically using the SID (Seeing in the Dark) network architecture within the MATLAB environment.
@@ -91,26 +91,34 @@ title("Network output (enhanced)");
 
 ---
 
-## 2️⃣ Changing DarkFactor
- 
-- The simulation parameter `darkFactor` was adjusted from `0.03` to `4`.
-- Expected output (example):  
+## 2️⃣ Changing `darkFactor`
+![Original_RGB](results/L10_1_1.png) 
+![Simunlated_Low_Light+noise](results/L10_2_2.png) 
+![Network_Output(Enhanced)](results/L10_2_3.png) 
 
-- Salt & Pepper noise produces higher MSE, meaning stronger degradation.
-
----
-
-## 3️⃣ Linear Filtering (Mean & Gaussian Filters)
-![linear_filters](results/L4_2.png)  
-**Explanation:**  
-- Applied a 3×3 average filter and a 3×3 Gaussian filter (σ = 0.7).  
-- Both reduce noise, but linear filters blur edges slightly.  
-- Gaussian filtering maintains smoother transitions than the mean filter.
+- The simulation parameter `darkFactor` was adjusted from `0.03` to `0.9`.
+- This modification was implemented to simulate a slightly dimmed image rather than a severe low-light scenario.
+- This served to test the network's efficiency and stability in denoising inputs that require minimal overall brightness compensation.
 
 ---
 
-## 4️⃣ Non-linear Filtering (Median Filter)
-**Explanation:**  
+## 3️⃣ Changing Noise Level
+![Original_RGB](results/L10_1_1.png) 
+![Simunlated_Low_Light+noise](results/L10_3_2.png) 
+![Network_Output(Enhanced)](results/L10_3_3.png) 
+
+- The Gaussian noise variance parameter in the simulation was adjusted: `imnoise(..., 0, 0.0001)`, reducing the variance from the original `0.002`.
+- The adjustment was made in the line responsible for adding noise to the dark image: `I_dark_noisy = imnoise(I_dark, "gaussian", 0, 0.0001);`
+- This modification was implemented to test the network's performance when the input image quality is significantly better.
+- The goal was to isolate the network's ability to handle low light compensation without the severe confounding effect of strong noise, thus providing the model with an easier input.
+
+---
+
+## 4️⃣ Adding `imsharpen`
+![Original_RGB](results/L10_1_1.png) 
+![Simunlated_Low_Light+noise](results/L10_4_2.png) 
+![Network_Output(Enhanced)](results/L10_4_3.png) 
+
 - Median filtering was applied to both Gaussian and Salt & Pepper noisy images.  
 - The median filter effectively removed salt & pepper noise without blurring edges.  
 - For Gaussian noise, the improvement was moderate compared to linear filters.
